@@ -1,0 +1,139 @@
+@base <http://semweb.mmlab.be/ns/wa#>.
+
+@prefix org: 	<http://www.w3.org/ns/org#>.
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: 	<http://xmlns.com/foaf/0.1/>.
+@prefix owl: 	<http://www.w3.org/2002/07/owl#> .
+@prefix dvia: 	<http://purl.org/ontology/dvia#> .
+@prefix dcat: 	<http://www.w3.org/ns/dcat#> .
+@prefix dct: 	<http://purl.org/dc/terms/>.
+@prefix xsd: 	<http://www.w3.org/2001/XMLSchema#> .
+@prefix rev:	<http://purl.org/stuff/rev#> .
+@prefix frbr: 	<http://purl.org/vocab/frbr/core#> .
+@prefix vann:   <http://purl.org/vocab/vann/> .
+@prefix cc:     <http://creativecommons.org/ns#> .
+@prefix wa: 	<http://semweb.mmlab.be/ns/wa#>.
+
+
+# ------------------------------- Metadata----------------------------------------------
+
+<http://semweb.mmlab.be/ns/wa>
+	a owl:Ontology;
+	rdfs:comment "wheelchair accessibility (wa) is an RDF vocabulary defined to describe the spaces' access potential for wheelshairs."@en ;
+	dct:title "The vocabulary for (L)OD description of wheelchair accessibility"@en;
+	dct:issued "2013-05-10"^^xsd:date;
+    dct:modified "2014-01-14"^^xsd:date;
+	cc:license <http://creativecommons.org/licenses/by/3.0/> ; 
+	vann:preferredNamespacePrefix "odapps" ;
+	owl:versionInfo "1.1 - 2014-01-14" .
+
+
+
+########--- Classes --------------##########
+
+
+#wa:Corridor
+
+wa:Corridor a rdfs:Class;
+	rdfs:label "Corridor"@en ; 
+	rdfs:comment ""@en ;
+	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+#wa:Door
+
+wa:Door a rdfs:Class;
+	rdfs:label "Door"@en ; 
+	rdfs:comment ""@en ;
+	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+#wa:Elevator
+
+wa:Elevator a rdfs:Class;
+	rdfs:label "Elevator"@en ; 
+	rdfs:comment ""@en ;
+	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+#wa:MeasurementScore
+
+wa:MeasurementScore a rdfs:Class;
+	rdfs:label "Measurement"@en ; 
+	rdfs:comment ""@en ;
+	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+#wa:Stair
+
+wa:Stair a rdfs:Class;
+	rdfs:label "Stair"@en ; 
+	rdfs:comment ""@en ;
+	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+#wa:Step
+
+wa:Step a rdfs:Class;
+	rdfs:label "Step"@en ; 
+	rdfs:comment ""@en ;
+	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+#wa:Table
+
+wa:Table a rdfs:Class;
+	rdfs:label "Table"@en ; 
+	rdfs:comment ""@en ;
+	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+#wa:Toilet
+
+wa:Toilet a rdfs:Class;
+	rdfs:label "Toilet"@en ; 
+	rdfs:comment ""@en ;
+	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+##### Properties ---------#########
+####-#############################
+
+
+#width
+
+wa:width a rdf:Property ;
+        rdfs:label "width" ;
+        rdfs:comment "" ;
+        rdfs:domain wa:Step;
+        rdfs:range wa:Measurement .
+
+#is it width for the "trede"@nl?
+
+
+#stairStep
+
+wa:stairStep a rdf:Property ;
+        rdfs:label "has stair step" ;
+        rdfs:comment "" ;
+        rdfs:domain wa:Stair;
+        rdfs:range wa:Step .
+
+
+#score
+
+wa:score a rdf:Property ;
+        rdfs:label "has score" ;
+        rdfs:comment "" ;
+        rdfs:domain wa:MeasurementScore;
+        rdfs:range xsd:string .
+
+
+#value
+
+wa:value a rdf:Property ;
+        rdfs:label "has width" ;
+        rdfs:comment "" ;
+        rdfs:domain wa:MeasurementScore;
+        rdfs:range xsd:decimal .

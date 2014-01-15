@@ -1,0 +1,170 @@
+@prefix :       <http://semweb.mmlab.be/ns/wa#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix dc:     <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+#@prefix transit:   <http://vocab.org/transit/terms/> .
+@prefix wt:     <http://westtoer.be/voc/> .
+@prefix wa: <http://semweb.mmlab.be/ns/wa#> .
+
+<#> a :Spec
+; :base_uri "tdt:package:resource/"
+; :resource <#Accessibility>, <#Address>, <#boolean_lookup>
+.
+
+<#Accessibility> a :Resource
+; :type schema:
+; :identity [
+    :source_column "id_WESTKANS"
+    ]
+
+; :attribute
+    [ :property dc:identifier;           :source_column "id_WESTKANS" ],
+    [ :property schema:name;      :source_column "NAAM" ;    :language "nl" ],
+    [ :property schema:telephone; :source_column "TEL" ],
+    [ :property schema:telephone; :source_column "GSM" ],
+    [ :property schema:email; :source_column "MAIL" ],
+    [ :property schema:url; :source_column "WEB" ],
+
+    #[ :property wt:children;      :source_column "KIDS";   :lookup <#boolean_lookup>;   :datatype xsd:boolean ],
+    #[ :property wt:disabled_accessible;      :source_column "ACCESSIBLE_4_DISSABLED";   :lookup <#boolean_lookup>;   :datatype xsd:boolean ],
+
+
+; :relationship
+	[ :property schema:location; :object_from <#Address> ],
+    [ :property schema:image; :object_from <#Image1>],
+    [ :property schema:image; :object_from <#Image2>],
+    [ :property schema:url; :object_from <#URL_TOELVA>],
+    [ :property schema:url; :object_from <#URL_BROCHURE>],
+
+    [ :property schema:postalCode; :object_from <#Stair> ],
+    [ :property schema:postalCode; :source_column "TREDE1_SCORE" ],
+    [ :property schema:postalCode; :source_column "TREDE2" ],
+    [ :property schema:postalCode; :source_column "TREDE2_SCORE" ],
+.
+
+<#Image1> a :Resource
+; :type schema:ImageObject
+; :identity [
+    :source_column "URL_FOTO_1";
+    :base_uri ""
+    ]
+.
+
+<#Image2> a :Resource
+; :type schema:ImageObject
+; :identity [
+    :source_column "URL_FOTO_2";
+    :base_uri ""
+    ]
+.
+
+<#URL_TOELVA> a :Resource
+; :type schema:ImageObject
+; :identity [
+    :source_column "URL_TOELVA";
+    :base_uri ""
+    ]
+.
+
+<#URL_BROCHURE> a :Resource
+; :type schema:ImageObject
+; :identity [
+    :source_column "URL_BROCHURE";
+    :base_uri ""
+    ]
+.
+
+<#Stair> a :Stair
+; :type schema:ImageObject
+[ :property wa:value; :source_column "TREDE1"; :datatype xsd:float],
+[ :property wa:value; :source_column "TREDE1_SCORE" ],
+.
+
+<#Address> a :Resource
+; :type schema:PostalAddress
+; :identity [
+    :source_column "id_WESTKANS";
+    :base_uri "tdt:package:resource/location/"
+    ]
+
+; :attribute
+    [ :property schema:streetAddress; 
+        [
+            :source_columns ( "ADRES_STRAAT" "ADRES_NR" );
+            :source_column_glue " ";
+        ];
+    ],
+    [ :property schema:postalCode; :source_column "PNR" ],
+    [ :property schema:addressLocality;
+        :source_columns ( "GEMEENTE" "DEELGEMEENTE" ) ;
+        :source_column_glue " - "
+    ],
+    [ :property wgs84_pos:lat; :source_column "LAT"; :datatype xsd:float],
+    [ :property wgs84_pos:lon; :source_column "LON"; :datatype xsd:float ],
+
+    [ :property wgs84_pos:lat; :source_column "X"; :datatype xsd:float],
+    [ :property wgs84_pos:lon; :source_column "Y"; :datatype xsd:float ],
+
+    [ :property schema:postalCode; :source_column "HELLING1_PCT" ],
+    [ :property schema:postalCode; :source_column "HELLING1_SCORE" ],
+    [ :property schema:postalCode; :source_column "HELLING2_PCT" ],
+    [ :property schema:postalCode; :source_column "HELLING2_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "LIFTDEUR_B" ],
+    [ :property schema:postalCode; :source_column "LIFTDEUR_SCORE" ],
+    [ :property schema:postalCode; :source_column "LIFT_B" ],
+    [ :property schema:postalCode; :source_column "LIFT_B_SCORE" ],
+    [ :property schema:postalCode; :source_column "LIFT_D" ],
+    [ :property schema:postalCode; :source_column "LIFT_D_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "INKOMDEUR" ],
+    [ :property schema:postalCode; :source_column "INKOMDEUR_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TAFEL_H" ],
+    [ :property schema:postalCode; :source_column "TAFEL_H_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TAFEL_D" ],
+    [ :property schema:postalCode; :source_column "TAFEL_D_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TOILET_GANG" ],
+    [ :property schema:postalCode; :source_column "TOILET_GANG_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TOILET_GANG_DEUR" ],
+    [ :property schema:postalCode; :source_column "TOILET_GANG_DEUR_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TOILET_DREMPEL1" ],
+    [ :property schema:postalCode; :source_column "TOILET_DREMPEL1_SCORE" ],
+    [ :property schema:postalCode; :source_column "TOILET_DREMPEL2" ],
+    [ :property schema:postalCode; :source_column "TOILET_DREMPEL2_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TOILET_HELLING_PCT" ],
+    [ :property schema:postalCode; :source_column "TOILET_HELLING_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TOILET_DEUR_B" ],
+    [ :property schema:postalCode; :source_column "TOILET_DEUR_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TOILET_RUIMTENAAST" ],
+    [ :property schema:postalCode; :source_column "TOILET_RUIMTENAAST_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TOILET_RUIMTEVOOR" ],
+    [ :property schema:postalCode; :source_column "TOILET_RUIMTEVOOR_SCORE" ],
+
+    [ :property schema:postalCode; :source_column "TOILET_BEUGELS" ],
+    [ :property schema:postalCode; :source_column "TOILET_BEUGELS_SCORE" ],
+
+.
+
+<#boolean_lookup> a :Lookup;
+  :lookup_entry [
+    :lookup_key "1";
+    :lookup_value "true"
+  ] ;
+  :lookup_entry [
+    :lookup_key "0";
+    :lookup_value "false"
+  ] .
