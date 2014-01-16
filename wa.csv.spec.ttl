@@ -9,7 +9,7 @@
 @prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 #@prefix transit:   <http://vocab.org/transit/terms/> .
 @prefix wt:     <http://westtoer.be/voc/> .
-@prefix wa: <http://semweb.mmlab.be/ns/wa#> .
+@prefix wa:     <http://semweb.mmlab.be/ns/wa#> .
 
 <#> a :Spec
 ; :base_uri "tdt:package:resource/"
@@ -33,18 +33,65 @@
     #[ :property wt:children;      :source_column "KIDS";   :lookup <#boolean_lookup>;   :datatype xsd:boolean ],
     #[ :property wt:disabled_accessible;      :source_column "ACCESSIBLE_4_DISSABLED";   :lookup <#boolean_lookup>;   :datatype xsd:boolean ],
 
+    [ :property wa:stairStep; :source_column "TREDE2" ],
+    [ :property wa:stairStepScore; :source_column "TREDE1_SCORE" ],
+    [ :property wa:stairStep; :source_column "TREDE2" ],
+    [ :property wa:stairStepScore; :source_column "TREDE2_SCORE" ],
+
+    [ :property wa:steepness; :source_column "HELLING1_PCT" ],
+    [ :property wa:steepnessScore; :source_column "HELLING1_SCORE" ],
+    [ :property wa:steepness; :source_column "HELLING2_PCT" ],
+    [ :property wa:steepnessScore; :source_column "HELLING2_SCORE" ],
+
+    [ :property wa:elevatorDoorWidth; :source_column "LIFTDEUR_B" ],
+    [ :property wa:elevatorDoorWidthScore; :source_column "LIFTDEUR_SCORE" ],
+    [ :property wa:elevatorSpaceWidth; :source_column "LIFT_B" ],
+    [ :property wa:elevatorSpaceWidthScore; :source_column "LIFT_B_SCORE" ],
+    [ :property wa:elevatorSpaceDepth; :source_column "LIFT_D" ],
+    [ :property wa:elevatorSpaceDepthScore; :source_column "LIFT_D_SCORE" ],
+
+    [ :property wa:entranceDoorWidth; :source_column "INKOMDEUR" ],
+    [ :property wa:entranceDoorWidthScore; :source_column "INKOMDEUR_SCORE" ],
+
+    [ :property wa:tableHeight; :source_column "TAFEL_H" ],
+    [ :property wa:tableHeightScore; :source_column "TAFEL_H_SCORE" ],
+
+    [ :property wa:tableDepth; :source_column "TAFEL_D" ],
+    [ :property wa:tableDepthScore; :source_column "TAFEL_D_SCORE" ],
+
+    [ :property wa:toiletCorridorWidth; :source_column "TOILET_GANG" ],
+    [ :property wa:toiletCorridorWidthScore; :source_column "TOILET_GANG_SCORE" ],
+
+    [ :property wa:toiletCorridorDoorWidth; :source_column "TOILET_GANG_DEUR" ],
+    [ :property wa:toiletCorridorDoorWidthScore; :source_column "TOILET_GANG_DEUR_SCORE" ],
+
+    [ :property wa:toiletDoorstep; :source_column "TOILET_DREMPEL1" ],
+    [ :property wa:toiletDoorstepScore; :source_column "TOILET_DREMPEL1_SCORE" ],
+    [ :property wa:toiletDoorstep; :source_column "TOILET_DREMPEL2" ],
+    [ :property wa:toiletDoorstepScore; :source_column "TOILET_DREMPEL2_SCORE" ],
+
+    [ :property wa:toiletSteepness; :source_column "TOILET_HELLING_PCT" ],
+    [ :property wa:toiletSteepnessScore; :source_column "TOILET_HELLING_SCORE" ],
+
+    [ :property wa:toiletDoorWidth; :source_column "TOILET_DEUR_B" ],
+    [ :property wa:toiletDoorWidthScore; :source_column "TOILET_DEUR_SCORE" ],
+
+    [ :property wa:toiletSpaceNext; :source_column "TOILET_RUIMTENAAST" ],
+    [ :property wa:toiletSpaceNextScore; :source_column "TOILET_RUIMTENAAST_SCORE" ],
+
+    [ :property wa:toiletSpaceInfront; :source_column "TOILET_RUIMTEVOOR" ],
+    [ :property schema:postalInfrontScore; :source_column "TOILET_RUIMTEVOOR_SCORE" ],
+
+    [ :property wa:handrails; :source_column "TOILET_BEUGELS" ],
+    [ :property wa:handrailsScore; :source_column "TOILET_BEUGELS_SCORE" ]
+
 
 ; :relationship
 	[ :property schema:location; :object_from <#Address> ],
     [ :property schema:image; :object_from <#Image1>],
     [ :property schema:image; :object_from <#Image2>],
     [ :property schema:url; :object_from <#URL_TOELVA>],
-    [ :property schema:url; :object_from <#URL_BROCHURE>],
-
-    [ :property schema:postalCode; :object_from <#Stair> ],
-    [ :property schema:postalCode; :source_column "TREDE1_SCORE" ],
-    [ :property schema:postalCode; :source_column "TREDE2" ],
-    [ :property schema:postalCode; :source_column "TREDE2_SCORE" ],
+    [ :property schema:url; :object_from <#URL_BROCHURE>]
 .
 
 <#Image1> a :Resource
@@ -79,12 +126,6 @@
     ]
 .
 
-<#Stair> a :Stair
-; :type schema:ImageObject
-[ :property wa:value; :source_column "TREDE1"; :datatype xsd:float],
-[ :property wa:value; :source_column "TREDE1_SCORE" ],
-.
-
 <#Address> a :Resource
 ; :type schema:PostalAddress
 ; :identity [
@@ -94,10 +135,8 @@
 
 ; :attribute
     [ :property schema:streetAddress; 
-        [
-            :source_columns ( "ADRES_STRAAT" "ADRES_NR" );
-            :source_column_glue " ";
-        ];
+        :source_columns ( "ADRES_STRAAT" "ADRES_NR" );
+        :source_column_glue " ";
     ],
     [ :property schema:postalCode; :source_column "PNR" ],
     [ :property schema:addressLocality;
@@ -108,56 +147,10 @@
     [ :property wgs84_pos:lon; :source_column "LON"; :datatype xsd:float ],
 
     [ :property wgs84_pos:lat; :source_column "X"; :datatype xsd:float],
-    [ :property wgs84_pos:lon; :source_column "Y"; :datatype xsd:float ],
+    [ :property wgs84_pos:lon; :source_column "Y"; :datatype xsd:float ] .
 
-    [ :property schema:postalCode; :source_column "HELLING1_PCT" ],
-    [ :property schema:postalCode; :source_column "HELLING1_SCORE" ],
-    [ :property schema:postalCode; :source_column "HELLING2_PCT" ],
-    [ :property schema:postalCode; :source_column "HELLING2_SCORE" ],
 
-    [ :property schema:postalCode; :source_column "LIFTDEUR_B" ],
-    [ :property schema:postalCode; :source_column "LIFTDEUR_SCORE" ],
-    [ :property schema:postalCode; :source_column "LIFT_B" ],
-    [ :property schema:postalCode; :source_column "LIFT_B_SCORE" ],
-    [ :property schema:postalCode; :source_column "LIFT_D" ],
-    [ :property schema:postalCode; :source_column "LIFT_D_SCORE" ],
 
-    [ :property schema:postalCode; :source_column "INKOMDEUR" ],
-    [ :property schema:postalCode; :source_column "INKOMDEUR_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TAFEL_H" ],
-    [ :property schema:postalCode; :source_column "TAFEL_H_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TAFEL_D" ],
-    [ :property schema:postalCode; :source_column "TAFEL_D_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TOILET_GANG" ],
-    [ :property schema:postalCode; :source_column "TOILET_GANG_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TOILET_GANG_DEUR" ],
-    [ :property schema:postalCode; :source_column "TOILET_GANG_DEUR_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TOILET_DREMPEL1" ],
-    [ :property schema:postalCode; :source_column "TOILET_DREMPEL1_SCORE" ],
-    [ :property schema:postalCode; :source_column "TOILET_DREMPEL2" ],
-    [ :property schema:postalCode; :source_column "TOILET_DREMPEL2_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TOILET_HELLING_PCT" ],
-    [ :property schema:postalCode; :source_column "TOILET_HELLING_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TOILET_DEUR_B" ],
-    [ :property schema:postalCode; :source_column "TOILET_DEUR_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TOILET_RUIMTENAAST" ],
-    [ :property schema:postalCode; :source_column "TOILET_RUIMTENAAST_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TOILET_RUIMTEVOOR" ],
-    [ :property schema:postalCode; :source_column "TOILET_RUIMTEVOOR_SCORE" ],
-
-    [ :property schema:postalCode; :source_column "TOILET_BEUGELS" ],
-    [ :property schema:postalCode; :source_column "TOILET_BEUGELS_SCORE" ],
-
-.
 
 <#boolean_lookup> a :Lookup;
   :lookup_entry [

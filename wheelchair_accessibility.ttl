@@ -22,77 +22,21 @@
 	a owl:Ontology;
 	rdfs:comment "wheelchair accessibility (wa) is an RDF vocabulary defined to describe the spaces' access potential for wheelshairs."@en ;
 	dct:title "The vocabulary for (L)OD description of wheelchair accessibility"@en;
-	dct:issued "2013-05-10"^^xsd:date;
-    dct:modified "2014-01-14"^^xsd:date;
+	dct:issued "2014-01-16"^^xsd:date;
+    #dct:modified "2014-01-14"^^xsd:date;
 	cc:license <http://creativecommons.org/licenses/by/3.0/> ; 
-	vann:preferredNamespacePrefix "odapps" ;
-	owl:versionInfo "1.1 - 2014-01-14" .
+	vann:preferredNamespacePrefix "wa" ;
+	owl:versionInfo "1.1 - 2014-01-16" .
 
 
 
 ########--- Classes --------------##########
 
 
-#wa:Corridor
+#wa:Accessibility
 
-wa:Corridor a rdfs:Class;
-	rdfs:label "Corridor"@en ; 
-	rdfs:comment ""@en ;
-	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
-
-
-#wa:Door
-
-wa:Door a rdfs:Class;
-	rdfs:label "Door"@en ; 
-	rdfs:comment ""@en ;
-	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
-
-
-#wa:Elevator
-
-wa:Elevator a rdfs:Class;
-	rdfs:label "Elevator"@en ; 
-	rdfs:comment ""@en ;
-	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
-
-
-#wa:MeasurementScore
-
-wa:MeasurementScore a rdfs:Class;
-	rdfs:label "Measurement"@en ; 
-	rdfs:comment ""@en ;
-	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
-
-
-#wa:Stair
-
-wa:Stair a rdfs:Class;
-	rdfs:label "Stair"@en ; 
-	rdfs:comment ""@en ;
-	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
-
-
-#wa:Step
-
-wa:Step a rdfs:Class;
-	rdfs:label "Step"@en ; 
-	rdfs:comment ""@en ;
-	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
-
-
-#wa:Table
-
-wa:Table a rdfs:Class;
-	rdfs:label "Table"@en ; 
-	rdfs:comment ""@en ;
-	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
-
-
-#wa:Toilet
-
-wa:Toilet a rdfs:Class;
-	rdfs:label "Toilet"@en ; 
+wa:Accessibility a rdfs:Class;
+	rdfs:label "Accessibility"@en ; 
 	rdfs:comment ""@en ;
 	rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
 
@@ -101,39 +45,334 @@ wa:Toilet a rdfs:Class;
 ####-#############################
 
 
-#width
+#elevatorDoorWidth
 
-wa:width a rdf:Property ;
-        rdfs:label "width" ;
-        rdfs:comment "" ;
-        rdfs:domain wa:Step;
-        rdfs:range wa:Measurement .
+wa:elevatorDoorWidth a rdf:Property ;
+        rdfs:label "elevator door width"@en ;
+        rdfs:label "liftdeur breedte"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal ;
+        rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
 
-#is it width for the "trede"@nl?
+
+#elevatorDoorScore
+
+wa:elevatorDoorScore a rdf:Property ;
+        rdfs:label "elevator door width score"@en ;
+        rdfs:label "liftdeur breedte score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility ;
+        rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa> .
+
+
+#elevatorSpaceWidth
+
+wa:elevatorSpaceWidth a rdf:Property ;
+        rdfs:label "elevator space width"@en ;
+        rdfs:label "liftruimte breedte"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal ;
+        rdfs:isDefinedBy <http://semweb.mmlab.be/ns/wa>.
+
+
+#elevatorSpaceWidthScore
+
+wa:elevatorSpaceScore a rdf:Property ;
+        rdfs:label "elevator space width score"@en ;
+        rdfs:label "liftruimte breedte score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#elevatorSpaceDepth
+
+wa:elevatorSpaceDepth a rdf:Property ;
+        rdfs:label "elevator space depth"@en ;
+        rdfs:label "liftruimte diepte"@nl ;
+        rdfs:comment "dimension (cm)"@en ;
+        rdfs:comment "afmeting (cm)"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#elevatorSpaceDepthScore
+
+wa:elevatorSpaceDepthScore a rdf:Property ;
+        rdfs:label "elevator space depth score"@en ;
+        rdfs:label "liftruimte diepte score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#entranceDoorWidth
+
+wa:entranceDoorWidth a rdf:Property ;
+        rdfs:label "entrance door width"@en ;
+        rdfs:label "inkomdeur breedte"@nl ;
+        rdfs:comment "afmeting (cm)"@nl ;
+        rdfs:comment "dimension (cm)"@en ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#entranceDoorWidthScore
+
+wa:entranceDoorWidthScore a rdf:Property ;
+        rdfs:label "entrance door width score"@en ;
+        rdfs:label "inkomdeur breedte score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
 
 
 #stairStep
 
 wa:stairStep a rdf:Property ;
-        rdfs:label "has stair step" ;
-        rdfs:comment "" ;
-        rdfs:domain wa:Stair;
-        rdfs:range wa:Step .
-
-
-#score
-
-wa:score a rdf:Property ;
-        rdfs:label "has score" ;
-        rdfs:comment "" ;
-        rdfs:domain wa:MeasurementScore;
-        rdfs:range xsd:string .
-
-
-#value
-
-wa:value a rdf:Property ;
-        rdfs:label "has width" ;
-        rdfs:comment "" ;
-        rdfs:domain wa:MeasurementScore;
+        rdfs:label "stair step"@en ;
+        rdfs:label "trede"@nl ;
+        rdfs:comment "afmeting (cm)"@nl ;
+        rdfs:comment "dimension (cm)"@en ;
+        rdfs:domain wa:Accessibility;
         rdfs:range xsd:decimal .
+
+
+#stairStep score
+
+wa:stairStepScore a rdf:Property ;
+        rdfs:label "stair step score"@en ;
+        rdfs:label "trede score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Stair  .
+
+
+#steepness
+
+wa:steepness a rdf:Property ;
+        rdfs:label "steepness"@en ;
+        rdfs:label "helling"@nl ;
+        rdfs:comment "PCT dimension (cm)"@en ;
+        rdfs:comment "PCT afmeting (cm)"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#steepness score
+
+wa:steepnessScore a rdf:Property ;
+        rdfs:label "steepness score" ;
+        rdfs:label "helling score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#table height
+
+wa:tableHeight a rdf:Property ;
+        rdfs:label "table height"@en ;
+        rdfs:label "tafel onderrijdbare hoogte"@nl ;
+        rdfs:comment "dimension (cm)"@en ;
+        rdfs:comment "afmeting (cm)"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#table height score
+
+wa:tableHeightScore a rdf:Property ;
+        rdfs:label "table height score" ;
+        rdfs:label "tafel onderrijdbare hoogte score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#table depth
+
+wa:tableDepth a rdf:Property ;
+        rdfs:label "table depth"@en ;
+        rdfs:label "tafel onderrijdbare diepte"@nl ;
+        rdfs:comment "dimension (cm)"@en ;
+        rdfs:comment "afmeting (cm)"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#table depth score
+
+wa:tableDepthScore a rdf:Property ;
+        rdfs:label "table depth score" ;
+        rdfs:label "tafel onderrijdbare diepte score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#toiletCorridorWidth
+
+wa:toiletCorridorWidth a rdf:Property ;
+        rdfs:label "toilet corridor width"@en ;
+        rdfs:label "toilet gang"@nl ;
+        rdfs:comment "breedte smalste gang naar wc"@en ;
+        rdfs:comment "smallest width on the way to the toilet"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#toilet corridor width score
+
+wa:toiletCorridorWidthScore a rdf:Property ;
+        rdfs:label "toilet corridor width score" ;
+        rdfs:label "toilet gang score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#toiletCorridorDoorWidth
+
+wa:toiletCorridorDoorWidth a rdf:Property ;
+        rdfs:label "smallest door width on the way to the toilet"@en ;
+        rdfs:label "toilet gang"@nl ;
+        rdfs:comment "breedte smalste deur naar wc (op de route / niet de wc-deur zelf)"@en ;
+        rdfs:comment "smallest width on the way to the toilet"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#toilet corridor width score
+
+wa:toiletCorridorDoorWidthScore a rdf:Property ;
+        rdfs:label "score of the smallest door width on the way to the toilet" ;
+        rdfs:label "breedte smalste deur naar wc (op de route / niet de wc-deur zelf) score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#toiletDoorstep
+
+wa:toiletDoorstep a rdf:Property ;
+        rdfs:label "toilet doorstep"@en ;
+        rdfs:label "toilet drempel"@nl ;
+        rdfs:comment "drempel op de route naar het toilet"@en ;
+        rdfs:comment "doorstep on the way to the toilet"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#toilet doorstep score
+
+wa:toiletDoorstepScore a rdf:Property ;
+        rdfs:label "toilet doorstep score" ;
+        rdfs:label "drempel op de route naar het toilet"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#toiletSteepness
+
+wa:toiletSteepness a rdf:Property ;
+        rdfs:label "toilet steepness"@en ;
+        rdfs:label "toilet helling"@nl ;
+        rdfs:comment "helling op de route naar het toilet"@en ;
+        rdfs:comment "steepness on the way to the toilet"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#toilet steepness score
+
+wa:toiletSteepnessScore a rdf:Property ;
+        rdfs:label "toilet steepness score" ;
+        rdfs:label "toilet helling score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#toiletDoorWidth
+
+wa:toiletDoorWidth a rdf:Property ;
+        rdfs:label "toilet door width"@en ;
+        rdfs:label "toilet deur breedte"@nl ;
+        rdfs:comment "dimension (cm)"@en ;
+        rdfs:comment "afmeting (cm)"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#toilet door width score
+
+wa:toiletDoorWidthScore a rdf:Property ;
+        rdfs:label "toilet door width score" ;
+        rdfs:label "toilet deur score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#toilet space next to the toilet
+
+wa:toiletSpaceNext a rdf:Property ;
+        rdfs:label "toilet space next to the toilet"@en ;
+        rdfs:label "toiletruimte opstelruimte naast wc"@nl ;
+        rdfs:comment "dimension (cm)"@en ;
+        rdfs:comment "afmeting (cm)"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#score of the toilet space next to the toilet
+
+wa:toiletSpaceNext a rdf:Property ;
+        rdfs:label "score of the toilet space next to the toilet" ;
+        rdfs:label "toiletruimte opstelruimte naast wc score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#toiletSpaceNext
+
+wa:toiletSpaceInfront a rdf:Property ;
+        rdfs:label "toilet space in front of the toilet"@en ;
+        rdfs:label "toiletruimte opstelruimte voor wc"@nl ;
+        rdfs:comment "dimension (cm)"@en ;
+        rdfs:comment "afmeting (cm)"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#toilet space in front of the toilet
+
+wa:toiletSpaceInfront a rdf:Property ;
+        rdfs:label "score of the toilet space in front of the toilet" ;
+        rdfs:label "toiletruimte opstelruimte voor wc score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
+
+
+#number of handrails
+
+wa:handrails a rdf:Property ;
+        rdfs:label "number of handrails"@en ;
+        rdfs:label "aantal steunbeugels"@nl ;
+        rdfs:domain wa:Accessibility;
+        rdfs:range xsd:decimal .
+
+
+#toilet space in front of the toilet
+
+wa:toiletSpaceInfront a rdf:Property ;
+        rdfs:label "number of handrails score" ;
+        rdfs:label "aantal steunbeugels score"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@nl ;
+        rdfs:comment "score (+ ; +/- ; - )"@en ;
+        rdfs:domain wa:Accessibility .
