@@ -16,8 +16,15 @@
 ; :resource <#Accessibility>, <#Address>, <#boolean_lookup>
 .
 
+<#Westtoer> 
+  :identity [
+    :base_uri "http://westtoer.be/WIN/Bezienswaardigheden/",
+    :source_column "id_WESTTOER"]
+  ; :relationship
+    [ :property wa:accessibility; :object_from <#Accessibility> ].
+
 <#Accessibility> a :Resource
-; :type schema:
+; :type wa:Accessibility
 ; :identity [
     :source_column "id_WESTKANS"
     ]
@@ -91,7 +98,7 @@
     [ :property schema:image; :object_from <#Image1>],
     [ :property schema:image; :object_from <#Image2>],
     [ :property schema:url; :object_from <#URL_TOELVA>],
-    [ :property schema:url; :object_from <#URL_BROCHURE>]
+    [ :property schema:url; :object_from <#URL_BROCHURE>],
 .
 
 <#Image1> a :Resource
