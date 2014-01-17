@@ -1,7 +1,7 @@
-@prefix :       <http://semweb.mmlab.be/ns/wa#> .
+#@prefix :       <http://semweb.mmlab.be/ns/wa#> .
+@prefix : <http://vocab.mmlab.be/vertere/terms#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
 @prefix dc:     <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
@@ -10,6 +10,7 @@
 #@prefix transit:   <http://vocab.org/transit/terms/> .
 @prefix wt:     <http://westtoer.be/voc/> .
 @prefix wa:     <http://semweb.mmlab.be/ns/wa#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <#> a :Spec
 ; :base_uri "tdt:package:resource/"
@@ -141,7 +142,7 @@
     ]
 
 ; :attribute
-    [ :property schema:streetAddress; 
+    [ :property schema:streetAddress;
         :source_columns ( "ADRES_STRAAT" "ADRES_NR" );
         :source_column_glue " ";
     ],
@@ -150,11 +151,11 @@
         :source_columns ( "GEMEENTE" "DEELGEMEENTE" ) ;
         :source_column_glue " - "
     ],
-    [ :property wgs84_pos:lat; :source_column "LAT"; :datatype xsd:float],
-    [ :property wgs84_pos:lon; :source_column "LON"; :datatype xsd:float ],
+    [ :property wgs84_pos:lat; :source_column "LAT"; :datatype xsd:double],
+    [ :property wgs84_pos:lon; :source_column "LON"; :datatype xsd:double ],
 
-    [ :property wgs84_pos:lat; :source_column "X"; :datatype xsd:float],
-    [ :property wgs84_pos:lon; :source_column "Y"; :datatype xsd:float ] .
+    [ :property wgs84_pos:lat; :source_column "X"; :datatype xsd:double],
+    [ :property wgs84_pos:lon; :source_column "Y"; :datatype xsd:double ] .
 
 
 
