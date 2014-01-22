@@ -24,6 +24,7 @@
   ; :relationship
     [ :property     wa:accessibilityMeasurement;    :object_from <#Accessibility> ].
 
+
 <#Accessibility> a :Resource
 ; :type     wa:AccessibilityMeasurement
 ; :identity [
@@ -80,8 +81,8 @@
     [ :property     wa:toiletSpaceNext;         :source_column "TOILET_RUIMTENAAST" ],
     [ :property     wa:toiletSpaceNextScore;    :source_column "TOILET_RUIMTENAAST_SCORE" ],
 
-    [ :property     wa:toiletSpaceInfront;      :source_column "TOILET_RUIMTEVOOR" ],
-    [ :property     schema:postalInfrontScore;  :source_column "TOILET_RUIMTEVOOR_SCORE" ],
+    [ :property     wa:toiletSpaceInfront;          :source_column "TOILET_RUIMTEVOOR" ],
+    [ :property     schema:toiletSpaceInfrontScore; :source_column "TOILET_RUIMTEVOOR_SCORE" ],
 
     [ :property     wa:handrails;               :source_column "TOILET_BEUGELS" ],
     [ :property     wa:handrailsScore;          :source_column "TOILET_BEUGELS_SCORE" ]
@@ -93,8 +94,9 @@
     [ :property     schema:image;                   :object_from <#Image2>],
     [ :property     wa:toiletAccessibilityImage;    :object_from <#Image2>],
     [ :property     schema:url;                     :object_from <#URL_TOELVA>],
-    [ :property     wa:published;                   :object_from <#URL_BROCHURE>]
-.
+    [ :property     wa:published;                   :object_from <#URL_BROCHURE>],
+    [ :property     wa:accessibilityMeasurement_for;    :object_from <#Westtoer> ].
+
 
 <#Image1> a :Resource
 ; :type schema:ImageObject
@@ -127,5 +129,4 @@
     :base_uri ""
     ]
 .
-
 
