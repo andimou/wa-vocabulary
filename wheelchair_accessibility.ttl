@@ -142,10 +142,10 @@ wa:entranceDoorWidthScore a rdf:Property ;
         rdfs:domain     wa:Accessibility .
 
 
-#stairStep
+#threshold
 
-wa:stairStep a rdf:Property ;
-        rdfs:label      "stair step"@en ;
+wa:threshold a rdf:Property ;
+        rdfs:label      "threshold"@en ;
         rdfs:label      "trede"@nl ;
         rdfs:comment    "afmeting (cm)"@nl ;
         rdfs:comment    "dimension (cm)"@en ;
@@ -153,20 +153,20 @@ wa:stairStep a rdf:Property ;
         rdfs:range      xsd:decimal .
 
 
-#stairStep score
+#threshold score
 
-wa:stairStepScore a rdf:Property ;
-        rdfs:label      "stair step score"@en ;
+wa:thresholdScore a rdf:Property ;
+        rdfs:label      "threshold score"@en ;
         rdfs:label      "trede score"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@en ;
         rdfs:domain     wa:Stair  .
 
 
-#steepness
+#rampSteepness
 
-wa:steepness a rdf:Property ;
-        rdfs:label      "steepness"@en ;
+wa:rampSteepness a rdf:Property ;
+        rdfs:label      "ramp steepness"@en ;
         rdfs:label      "helling"@nl ;
         rdfs:comment    "PCT dimension (cm)"@en ;
         rdfs:comment    "PCT afmeting (cm)"@nl ;
@@ -174,10 +174,10 @@ wa:steepness a rdf:Property ;
         rdfs:range      xsd:decimal .
 
 
-#steepness score
+#rampSteepnessScore
 
 wa:steepnessScore a rdf:Property ;
-        rdfs:label      "steepness score" ;
+        rdfs:label      "rampSteepness score" ;
         rdfs:label      "helling score"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@en ;
@@ -226,10 +226,10 @@ wa:tableDepthScore a rdf:Property ;
         rdfs:domain     wa:Accessibility .
 
 
-#toiletCorridorWidth
+#toiletRouteWidth
 
-wa:toiletCorridorWidth a rdf:Property ;
-        rdfs:label      "toilet corridor width"@en ;
+wa:toiletRouteWidth a rdf:Property ;
+        rdfs:label      "toilet route width"@en ;
         rdfs:label      "toilet gang"@nl ;
         rdfs:comment    "breedte smalste gang naar wc"@en ;
         rdfs:comment    "smallest width on the way to the toilet"@nl ;
@@ -237,20 +237,20 @@ wa:toiletCorridorWidth a rdf:Property ;
         rdfs:range      xsd:decimal .
 
 
-#toilet corridor width score
+#toilet route width score
 
-wa:toiletCorridorWidthScore a rdf:Property ;
-        rdfs:label      "toilet corridor width score" ;
+wa:toiletRouteWidthScore a rdf:Property ;
+        rdfs:label      "toilet route width score" ;
         rdfs:label      "toilet gang score"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@en ;
         rdfs:domain     wa:Accessibility .
 
 
-#toiletCorridorDoorWidth
+#toiletRouteDoorWidth
 
-wa:toiletCorridorDoorWidth a rdf:Property ;
-        rdfs:label      "smallest door width on the way to the toilet"@en ;
+wa:toiletRouteDoorWidth a rdf:Property ;
+        rdfs:label      "smallest route width on the way to the toilet"@en ;
         rdfs:label      "toilet gang"@nl ;
         rdfs:comment    "breedte smalste deur naar wc (op de route / niet de wc-deur zelf)"@en ;
         rdfs:comment    "smallest width on the way to the toilet"@nl ;
@@ -268,10 +268,10 @@ wa:toiletCorridorDoorWidthScore a rdf:Property ;
         rdfs:domain     wa:Accessibility .
 
 
-#toiletDoorstep
+#toiletRouteThreshold
 
-wa:toiletDoorstep a rdf:Property ;
-        rdfs:label      "toilet doorstep"@en ;
+wa:toiletRouteThreshold a rdf:Property ;
+        rdfs:label      "toilet route threshold"@en ;
         rdfs:label      "toilet drempel"@nl ;
         rdfs:comment    "drempel op de route naar het toilet"@en ;
         rdfs:comment    "doorstep on the way to the toilet"@nl ;
@@ -279,20 +279,20 @@ wa:toiletDoorstep a rdf:Property ;
         rdfs:range      xsd:decimal .
 
 
-#toilet doorstep score
+#toilet route threshold score
 
-wa:toiletDoorstepScore a rdf:Property ;
-        rdfs:label      "toilet doorstep score" ;
+wa:toiletRouteThresholdScore a rdf:Property ;
+        rdfs:label      "toilet route threshold score" ;
         rdfs:label      "drempel op de route naar het toilet"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@en ;
         rdfs:domain     wa:Accessibility .
 
 
-#toiletSteepness
+#toiletRouteRampSteepness
 
-wa:toiletSteepness a rdf:Property ;
-        rdfs:label      "toilet steepness"@en ;
+wa:toiletRouteRampSteepness a rdf:Property ;
+        rdfs:label      "toilet route ramp steepness"@en ;
         rdfs:label      "toilet helling"@nl ;
         rdfs:comment    "helling op de route naar het toilet"@en ;
         rdfs:comment    "steepness on the way to the toilet"@nl ;
@@ -300,10 +300,10 @@ wa:toiletSteepness a rdf:Property ;
         rdfs:range      xsd:decimal .
 
 
-#toilet steepness score
+#toilet route ramp steepness score
 
-wa:toiletSteepnessScore a rdf:Property ;
-        rdfs:label      "toilet steepness score" ;
+wa:toiletRouteRampSteepnessScore a rdf:Property ;
+        rdfs:label      "toilet route ramp steepness score" ;
         rdfs:label      "toilet helling score"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@nl ;
         rdfs:comment    "score (+ ; +/- ; - )"@en ;
@@ -373,11 +373,13 @@ wa:toiletSpaceInfront a rdf:Property ;
         rdfs:domain     wa:Accessibility .
 
 
-#number of handrails
+#number of toilet handrails
 
-wa:handrails a rdf:Property ;
-        rdfs:label      "number of handrails"@en ;
+wa:toiletHandrails a rdf:Property ;
+        rdfs:label      "number of toilet handrails"@en ;
         rdfs:label      "aantal steunbeugels"@nl ;
+        rdfs:comment    "any number of 2, 1 or 0"@nl ;
+        rdfs:comment    "2, 1 or 0"@en ;
         rdfs:domain     wa:Accessibility;
         rdfs:range      xsd:decimal .
 

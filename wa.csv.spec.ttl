@@ -1,16 +1,16 @@
-#@prefix :       <http://semweb.mmlab.be/ns/wa#> .
-@prefix : <http://vocab.mmlab.be/vertere/terms#> .
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:    <http://www.w3.org/2002/07/owl#> .
-@prefix dc:     <http://purl.org/dc/terms/> .
-@prefix schema: <http://schema.org/> .
-@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
-@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+#@prefix :          <http://semweb.mmlab.be/ns/wa#> .
+@prefix :           <http://vocab.mmlab.be/vertere/terms#> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix dc:         <http://purl.org/dc/terms/> .
+@prefix schema:     <http://schema.org/> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix wgs84_pos:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 #@prefix transit:   <http://vocab.org/transit/terms/> .
-@prefix wt:     <http://westtoer.be/voc/> .
-@prefix wa:     <http://semweb.mmlab.be/ns/wa#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wt:         <http://westtoer.be/voc/> .
+@prefix wa:         <http://semweb.mmlab.be/ns/wa#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
 
 <#> a :Spec
 ; :base_uri "tdt:package:resource/"
@@ -35,57 +35,57 @@
 ; :attribute
     [ :property     dc:identifier;           :source_column "id_WESTKANS" ],
 
-    [ :property     wa:stairStep;            :source_column "TREDE2" ],
-    [ :property     wa:stairStepScore;       :source_column "TREDE1_SCORE" ],
-    [ :property     wa:stairStep;            :source_column "TREDE2" ],
-    [ :property     wa:stairStepScore;       :source_column "TREDE2_SCORE" ],
+    [ :property     wa:threshold;            :source_column "TREDE1";    :datatype xsd:decimal ],
+    [ :property     wa:thresholdScore;       :source_column "TREDE1_SCORE" ],
+    [ :property     wa:threshold;            :source_column "TREDE2";     :datatype xsd:decimal ],
+    [ :property     wa:thresholdScore;       :source_column "TREDE2_SCORE" ],
 
-    [ :property     wa:steepness;            :source_column "HELLING1_PCT" ],
-    [ :property     wa:steepnessScore;       :source_column "HELLING1_SCORE" ],
-    [ :property     wa:steepness;            :source_column "HELLING2_PCT" ],
-    [ :property     wa:steepnessScore;       :source_column "HELLING2_SCORE" ],
+    [ :property     wa:rampSteepness;            :source_column "HELLING1_PCT"; :datatype xsd:decimal ],
+    [ :property     wa:rampSteepnessScore;       :source_column "HELLING1_SCORE" ],
+    [ :property     wa:rampSteepness;            :source_column "HELLING2_PCT"; :datatype xsd:decimal ],
+    [ :property     wa:rampSteepnessScore;       :source_column "HELLING2_SCORE" ],
 
-    [ :property     wa:elevatorDoorWidth;       :source_column "LIFTDEUR_B" ],
+    [ :property     wa:elevatorDoorWidth;       :source_column "LIFTDEUR_B";    :datatype xsd:decimal ],
     [ :property     wa:elevatorDoorWidthScore;  :source_column "LIFTDEUR_SCORE" ],
-    [ :property     wa:elevatorSpaceWidth;      :source_column "LIFT_B" ],
+    [ :property     wa:elevatorSpaceWidth;      :source_column "LIFT_B";    :datatype xsd:decimal ],
     [ :property     wa:elevatorSpaceWidthScore; :source_column "LIFT_B_SCORE" ],
-    [ :property     wa:elevatorSpaceDepth;      :source_column "LIFT_D" ],
+    [ :property     wa:elevatorSpaceDepth;      :source_column "LIFT_D";    :datatype xsd:decimal ],
     [ :property     wa:elevatorSpaceDepthScore; :source_column "LIFT_D_SCORE" ],
 
-    [ :property     wa:entranceDoorWidth;       :source_column "INKOMDEUR" ],
+    [ :property     wa:entranceDoorWidth;       :source_column "INKOMDEUR";     :datatype xsd:decimal ],
     [ :property     wa:entranceDoorWidthScore;  :source_column "INKOMDEUR_SCORE" ],
 
-    [ :property     wa:tableHeight;             :source_column "TAFEL_H" ],
+    [ :property     wa:tableHeight;             :source_column "TAFEL_H";   :datatype xsd:decimal ],
     [ :property     wa:tableHeightScore;        :source_column "TAFEL_H_SCORE" ],
 
-    [ :property     wa:tableDepth;              :source_column "TAFEL_D" ],
+    [ :property     wa:tableDepth;              :source_column "TAFEL_D";   :datatype xsd:decimal ],
     [ :property     wa:tableDepthScore;         :source_column "TAFEL_D_SCORE" ],
 
-    [ :property     wa:toiletCorridorWidth;      :source_column "TOILET_GANG" ],
-    [ :property     wa:toiletCorridorWidthScore; :source_column "TOILET_GANG_SCORE" ],
+    [ :property     wa:toiletRouteWidth;        :source_column "TOILET_GANG";   :datatype xsd:decimal ],
+    [ :property     wa:toiletRouteWidthScore;   :source_column "TOILET_GANG_SCORE" ],
 
-    [ :property     wa:toiletCorridorDoorWidth;         :source_column "TOILET_GANG_DEUR" ],
-    [ :property     wa:toiletCorridorDoorWidthScore;    :source_column "TOILET_GANG_DEUR_SCORE" ],
+    [ :property     wa:toiletRouteDoorWidth;         :source_column "TOILET_GANG_DEUR";     :datatype xsd:decimal ],
+    [ :property     wa:toiletRouteDoorWidthScore;    :source_column "TOILET_GANG_DEUR_SCORE" ],
 
-    [ :property     wa:toiletDoorstep;          :source_column "TOILET_DREMPEL1" ],
-    [ :property     wa:toiletDoorstepScore;     :source_column "TOILET_DREMPEL1_SCORE" ],
-    [ :property     wa:toiletDoorstep;          :source_column "TOILET_DREMPEL2" ],
-    [ :property     wa:toiletDoorstepScore;     :source_column "TOILET_DREMPEL2_SCORE" ],
+    [ :property     wa:toiletRouteThreshold;         :source_column "TOILET_DREMPEL1";     :datatype xsd:decimal ],
+    [ :property     wa:toiletRouteThresholdScore;    :source_column "TOILET_DREMPEL1_SCORE" ],
+    [ :property     wa:toiletRouteThreshold;         :source_column "TOILET_DREMPEL2";     :datatype xsd:decimal ],
+    [ :property     wa:toiletRouteThresholdScore;    :source_column "TOILET_DREMPEL2_SCORE" ],
 
-    [ :property     wa:toiletSteepness;         :source_column "TOILET_HELLING_PCT" ],
-    [ :property     wa:toiletSteepnessScore;    :source_column "TOILET_HELLING_SCORE" ],
+    [ :property     wa:toiletRouteRampSteepness;         :source_column "TOILET_HELLING_PCT";     :datatype xsd:decimal ],
+    [ :property     wa:toiletRouteRampSteepnessScore;    :source_column "TOILET_HELLING_SCORE" ],
 
-    [ :property     wa:toiletDoorWidth;         :source_column "TOILET_DEUR_B" ],
+    [ :property     wa:toiletDoorWidth;         :source_column "TOILET_DEUR_B";     :datatype xsd:decimal ],
     [ :property     wa:toiletDoorWidthScore;    :source_column "TOILET_DEUR_SCORE" ],
 
-    [ :property     wa:toiletSpaceNext;         :source_column "TOILET_RUIMTENAAST" ],
+    [ :property     wa:toiletSpaceNext;         :source_column "TOILET_RUIMTENAAST";     :datatype xsd:decimal ],
     [ :property     wa:toiletSpaceNextScore;    :source_column "TOILET_RUIMTENAAST_SCORE" ],
 
-    [ :property     wa:toiletSpaceInfront;          :source_column "TOILET_RUIMTEVOOR" ],
+    [ :property     wa:toiletSpaceInfront;          :source_column "TOILET_RUIMTEVOOR";     :datatype xsd:decimal ],
     [ :property     schema:toiletSpaceInfrontScore; :source_column "TOILET_RUIMTEVOOR_SCORE" ],
 
-    [ :property     wa:handrails;               :source_column "TOILET_BEUGELS" ],
-    [ :property     wa:handrailsScore;          :source_column "TOILET_BEUGELS_SCORE" ]
+    [ :property     wa:toiletHandrails;               :source_column "TOILET_BEUGELS"; :datatype xsd:int ],
+    [ :property     wa:toiletHandrailsScore;          :source_column "TOILET_BEUGELS_SCORE" ]
 
 
 ; :relationship
