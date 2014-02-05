@@ -16,10 +16,10 @@
 ; :base_uri "tdt:package:resource/"
 ; :resource <#Accessibility>, <#Westtoer> .
 
-<#Westtoer> 
+<#Westtoer>
   :identity [
     :base_uri   "http://westtoer.be/WIN/Bezienswaardigheden/"
-    ; :source_column    "id_WESTTOER"
+    ; :source_column    "ID_WESTTOER"
   ]
   ; :relationship
     [ :property     wa:accessibilityMeasurement;    :object_from <#Accessibility> ].
@@ -129,4 +129,3 @@
     :base_uri ""
     ]
 .
-
