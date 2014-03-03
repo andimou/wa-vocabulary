@@ -16,20 +16,19 @@
 ; :base_uri "tdt:package:resource/"
 ; :resource <#Accessibility>, <#Westtoer> .
 
-<#Westtoer>
-  :identity [
-    :base_uri   "http://westtoer.be/WIN/Bezienswaardigheden/"
-    ; :source_column    "ID_WESTTOER"
+<#Westtoer> a :Resource
+  ; :identity [
+    :base_uri   "https://datahubtest.westtoer.be/WIN/Bezienswaardigheden/"
+  ;  :source_column    "ID_WESTTOER"
   ]
   ; :relationship
-    [ :property     wa:accessibilityMeasurement;    :object_from <#Accessibility> ].
+   [ :property     wa:accessibilityMeasurement;    :object_from <#Accessibility> ].
 
 
 <#Accessibility> a :Resource
 ; :type     wa:AccessibilityMeasurement
 ; :identity [
     :source_column "id_WESTKANS"
-    #make sure it's generated at http://westtoer.dev/westkans/2013/ base URI
     ]
 
 ; :attribute
@@ -85,8 +84,8 @@
     [ :property     schema:toiletSpaceInfrontScore; :source_column "TOILET_RUIMTEVOOR_SCORE" ],
 
     [ :property     wa:toiletHandrails;               :source_column "TOILET_BEUGELS"; :datatype xsd:int ],
-    [ :property     wa:toiletHandrailsScore;          :source_column "TOILET_BEUGELS_SCORE" ]
-
+    [ :property     wa:toiletHandrailsScore;          :source_column "TOILET_BEUGELS_SCORE" ],
+    [ :property     wa:accessibilityMeasurement_for;    :source_column "ID_WESTTOER" ]
 
 ; :relationship
     [ :property     schema:image;                   :object_from <#Image1>],
