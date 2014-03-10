@@ -35,7 +35,7 @@
     [ :property     dc:identifier;           :source_column "id_WESTKANS" ],
 
     [ :property     wa:threshold;            :source_column "TREDE1";    :datatype xsd:decimal ],
-    [ :property     wa:thresholdScore;       :source_column "TREDE1_SCORE" ],
+    [ :property     wa:thresholdScore;       :source_column "TREDE1_SCORE" ] ;  :lookup <#Plus_Minus>,
     [ :property     wa:threshold;            :source_column "TREDE2";     :datatype xsd:decimal ],
     [ :property     wa:thresholdScore;       :source_column "TREDE2_SCORE" ],
 
@@ -95,6 +95,7 @@
     [ :property     schema:url;                     :object_from <#URL_TOELVA>],
     [ :property     wa:published;                   :object_from <#URL_BROCHURE>],
     [ :property     wa:accessibilityMeasurement_for;    :object_from <#Westtoer> ].
+    #[ :property     wa:thresholdScore;       :object_from <#Plus_Minus> ],.
 
 
 <#Image1> a :Resource
@@ -128,3 +129,17 @@
     :base_uri ""
     ]
 .
+
+<#Plus_Minus> a :Lookup;
+  :lookup_entry [ 
+    :lookup_key "+"; 
+    :lookup_value "accessible"
+  ] ;
+  :lookup_entry [ 
+    :lookup_key "-"; 
+    :lookup_value "not accessible"
+  ] ;
+  :lookup_entry [ 
+    :lookup_key "-"; 
+    :lookup_value "accessible with help"
+  ] .
