@@ -14,7 +14,7 @@
 
 <#> a :Spec
 ; :base_uri "tdt:package:resource/"
-; :resource <#Accessibility>, <#Westtoer> .
+; :resource <#Accessibility>, <#Westtoer>, <#Plus_Minus> .
 
 <#Westtoer> a :Resource
   ; :identity [
@@ -37,25 +37,25 @@
     [ :property     wa:threshold;            :source_column "TREDE1";    :datatype xsd:decimal ],
     [ :property     wa:thresholdScore;       :source_column "TREDE1_SCORE" ] ;  :lookup <#Plus_Minus>,
     [ :property     wa:threshold;            :source_column "TREDE2";     :datatype xsd:decimal ],
-    [ :property     wa:thresholdScore;       :source_column "TREDE2_SCORE" ],
+    [ :property     wa:thresholdScore;       :source_column "TREDE2_SCORE" ] ;  :lookup <#Plus_Minus>,
 
     [ :property     wa:rampSteepness;            :source_column "HELLING1_PCT"; :datatype xsd:decimal ],
-    [ :property     wa:rampSteepnessScore;       :source_column "HELLING1_SCORE" ],
+    [ :property     wa:rampSteepnessScore;       :source_column "HELLING1_SCORE" ] ;  :lookup <#Plus_Minus>,
     [ :property     wa:rampSteepness;            :source_column "HELLING2_PCT"; :datatype xsd:decimal ],
-    [ :property     wa:rampSteepnessScore;       :source_column "HELLING2_SCORE" ],
+    [ :property     wa:rampSteepnessScore;       :source_column "HELLING2_SCORE" ] ;  :lookup <#Plus_Minus>,
 
     [ :property     wa:elevatorDoorWidth;       :source_column "LIFTDEUR_B";    :datatype xsd:decimal ],
-    [ :property     wa:elevatorDoorWidthScore;  :source_column "LIFTDEUR_SCORE" ],
+    [ :property     wa:elevatorDoorWidthScore;  :source_column "LIFTDEUR_SCORE" ] ;  :lookup <#Plus_Minus>,
     [ :property     wa:elevatorSpaceWidth;      :source_column "LIFT_B";    :datatype xsd:decimal ],
-    [ :property     wa:elevatorSpaceWidthScore; :source_column "LIFT_B_SCORE" ],
+    [ :property     wa:elevatorSpaceWidthScore; :source_column "LIFT_B_SCORE" ] ;  :lookup <#Plus_Minus>,
     [ :property     wa:elevatorSpaceDepth;      :source_column "LIFT_D";    :datatype xsd:decimal ],
-    [ :property     wa:elevatorSpaceDepthScore; :source_column "LIFT_D_SCORE" ],
+    [ :property     wa:elevatorSpaceDepthScore; :source_column "LIFT_D_SCORE" ] ;  :lookup <#Plus_Minus>,
 
     [ :property     wa:entranceDoorWidth;       :source_column "INKOMDEUR";     :datatype xsd:decimal ],
-    [ :property     wa:entranceDoorWidthScore;  :source_column "INKOMDEUR_SCORE" ],
+    [ :property     wa:entranceDoorWidthScore;  :source_column "INKOMDEUR_SCORE" ] ;  :lookup <#Plus_Minus>,
 
     [ :property     wa:tableHeight;             :source_column "TAFEL_H";   :datatype xsd:decimal ],
-    [ :property     wa:tableHeightScore;        :source_column "TAFEL_H_SCORE" ],
+    [ :property     wa:tableHeightScore;        :source_column "TAFEL_H_SCORE" ] ;  :lookup <#Plus_Minus>,
 
     [ :property     wa:tableDepth;              :source_column "TAFEL_D";   :datatype xsd:decimal ],
     [ :property     wa:tableDepthScore;         :source_column "TAFEL_D_SCORE" ],
@@ -95,7 +95,7 @@
     [ :property     schema:url;                     :object_from <#URL_TOELVA>],
     [ :property     wa:published;                   :object_from <#URL_BROCHURE>],
     [ :property     wa:accessibilityMeasurement_for;    :object_from <#Westtoer> ].
-    #[ :property     wa:thresholdScore;       :object_from <#Plus_Minus> ],.
+    
 
 
 <#Image1> a :Resource
@@ -132,14 +132,14 @@
 
 <#Plus_Minus> a :Lookup;
   :lookup_entry [ 
-    :lookup_key "+"; 
-    :lookup_value "accessible"
+    :lookup_key "accessible"; 
+    :lookup_value "+"
   ] ;
   :lookup_entry [ 
     :lookup_key "-"; 
     :lookup_value "not accessible"
   ] ;
   :lookup_entry [ 
-    :lookup_key "-"; 
+    :lookup_key "+/-"; 
     :lookup_value "accessible with help"
   ] .
