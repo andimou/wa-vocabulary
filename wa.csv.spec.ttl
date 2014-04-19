@@ -32,59 +32,59 @@
     ]
 
 ; :attribute
-    [ :property     dc:identifier;           :source_column "id_WESTKANS" ],
+    [ :property     dc:identifier;           :source_column "id_WESTKANS" ;],
 
     [ :property     wa:threshold;            :source_column "TREDE1";    :datatype xsd:decimal ],
-    [ :property     wa:thresholdScore;       :source_column "TREDE1_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:thresholdScore;       :source_column "TREDE1_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ] ,
     [ :property     wa:threshold;            :source_column "TREDE2";     :datatype xsd:decimal ],
-    [ :property     wa:thresholdScore;       :source_column "TREDE2_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:thresholdScore;       :source_column "TREDE2_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ] ,
 
     [ :property     wa:rampSteepness;            :source_column "HELLING1_PCT"; :datatype xsd:decimal ],
-    [ :property     wa:rampSteepnessScore;       :source_column "HELLING1_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:rampSteepnessScore;       :source_column "HELLING1_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string] ,
     [ :property     wa:rampSteepness;            :source_column "HELLING2_PCT"; :datatype xsd:decimal ],
-    [ :property     wa:rampSteepnessScore;       :source_column "HELLING2_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:rampSteepnessScore;       :source_column "HELLING2_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string] ,
 
     [ :property     wa:elevatorDoorWidth;       :source_column "LIFTDEUR_B";    :datatype xsd:decimal ],
-    [ :property     wa:elevatorDoorWidthScore;  :source_column "LIFTDEUR_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:elevatorDoorWidthScore;  :source_column "LIFTDEUR_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string],
     [ :property     wa:elevatorSpaceWidth;      :source_column "LIFT_B";    :datatype xsd:decimal ],
-    [ :property     wa:elevatorSpaceWidthScore; :source_column "LIFT_B_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:elevatorSpaceWidthScore; :source_column "LIFT_B_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string],
     [ :property     wa:elevatorSpaceDepth;      :source_column "LIFT_D";    :datatype xsd:decimal ],
-    [ :property     wa:elevatorSpaceDepthScore; :source_column "LIFT_D_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:elevatorSpaceDepthScore; :source_column "LIFT_D_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string],
 
     [ :property     wa:entranceDoorWidth;       :source_column "INKOMDEUR";     :datatype xsd:decimal ],
-    [ :property     wa:entranceDoorWidthScore;  :source_column "INKOMDEUR_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:entranceDoorWidthScore;  :source_column "INKOMDEUR_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string],
 
     [ :property     wa:tableHeight;             :source_column "TAFEL_H";   :datatype xsd:decimal ],
-    [ :property     wa:tableHeightScore;        :source_column "TAFEL_H_SCORE" ] ;  :lookup <#Plus_Minus>,
+    [ :property     wa:tableHeightScore;        :source_column "TAFEL_H_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string],
 
     [ :property     wa:tableDepth;              :source_column "TAFEL_D";   :datatype xsd:decimal ],
-    [ :property     wa:tableDepthScore;         :source_column "TAFEL_D_SCORE" ],
+    [ :property     wa:tableDepthScore;         :source_column "TAFEL_D_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string],
 
     [ :property     wa:toiletRouteWidth;        :source_column "TOILET_GANG";   :datatype xsd:decimal ],
-    [ :property     wa:toiletRouteWidthScore;   :source_column "TOILET_GANG_SCORE" ],
+    [ :property     wa:toiletRouteWidthScore;   :source_column "TOILET_GANG_SCORE" ;  :lookup <#Plus_Minus>; :datatype xsd:string],
 
     [ :property     wa:toiletRouteDoorWidth;         :source_column "TOILET_GANG_DEUR";     :datatype xsd:decimal ],
-    [ :property     wa:toiletRouteDoorWidthScore;    :source_column "TOILET_GANG_DEUR_SCORE" ],
+    [ :property     wa:toiletRouteDoorWidthScore;    :source_column "TOILET_GANG_DEUR_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ],
 
     [ :property     wa:toiletRouteThreshold;         :source_column "TOILET_DREMPEL1";     :datatype xsd:decimal ],
-    [ :property     wa:toiletRouteThresholdScore;    :source_column "TOILET_DREMPEL1_SCORE" ],
+    [ :property     wa:toiletRouteThresholdScore;    :source_column "TOILET_DREMPEL1_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ],
     [ :property     wa:toiletRouteThreshold;         :source_column "TOILET_DREMPEL2";     :datatype xsd:decimal ],
-    [ :property     wa:toiletRouteThresholdScore;    :source_column "TOILET_DREMPEL2_SCORE" ],
+    [ :property     wa:toiletRouteThresholdScore;    :source_column "TOILET_DREMPEL2_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ],
 
     [ :property     wa:toiletRouteRampSteepness;         :source_column "TOILET_HELLING_PCT";     :datatype xsd:decimal ],
-    [ :property     wa:toiletRouteRampSteepnessScore;    :source_column "TOILET_HELLING_SCORE" ],
+    [ :property     wa:toiletRouteRampSteepnessScore;    :source_column "TOILET_HELLING_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ],
 
     [ :property     wa:toiletDoorWidth;         :source_column "TOILET_DEUR_B";     :datatype xsd:decimal ],
-    [ :property     wa:toiletDoorWidthScore;    :source_column "TOILET_DEUR_SCORE" ],
+    [ :property     wa:toiletDoorWidthScore;    :source_column "TOILET_DEUR_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ],
 
     [ :property     wa:toiletSpaceNext;         :source_column "TOILET_RUIMTENAAST";     :datatype xsd:decimal ],
-    [ :property     wa:toiletSpaceNextScore;    :source_column "TOILET_RUIMTENAAST_SCORE" ],
+    [ :property     wa:toiletSpaceNextScore;    :source_column "TOILET_RUIMTENAAST_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ],
 
     [ :property     wa:toiletSpaceInfront;          :source_column "TOILET_RUIMTEVOOR";     :datatype xsd:decimal ],
-    [ :property     schema:toiletSpaceInfrontScore; :source_column "TOILET_RUIMTEVOOR_SCORE" ],
+    [ :property     wa:toiletSpaceInfrontScore; :source_column "TOILET_RUIMTEVOOR_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ],
 
     [ :property     wa:toiletHandrails;               :source_column "TOILET_BEUGELS"; :datatype xsd:int ],
-    [ :property     wa:toiletHandrailsScore;          :source_column "TOILET_BEUGELS_SCORE" ],
+    [ :property     wa:toiletHandrailsScore;          :source_column "TOILET_BEUGELS_SCORE";  :lookup <#Plus_Minus>; :datatype xsd:string ],
     [ :property     wa:accessibilityMeasurement_for;    :source_column "ID_WESTTOER" ]
 
 ; :relationship
@@ -95,8 +95,6 @@
     [ :property     schema:url;                     :object_from <#URL_TOELVA>],
     [ :property     wa:published;                   :object_from <#URL_BROCHURE>],
     [ :property     wa:accessibilityMeasurement_for;    :object_from <#Westtoer> ].
-    
-
 
 <#Image1> a :Resource
 ; :type schema:ImageObject
@@ -131,15 +129,15 @@
 .
 
 <#Plus_Minus> a :Lookup;
-  :lookup_entry [ 
-    :lookup_key "accessible"; 
-    :lookup_value "+"
+  :lookup_entry [
+    :lookup_key "+";
+    :lookup_value "accessible"
   ] ;
-  :lookup_entry [ 
-    :lookup_key "-"; 
+  :lookup_entry [
+    :lookup_key "-";
     :lookup_value "not accessible"
   ] ;
-  :lookup_entry [ 
-    :lookup_key "+/-"; 
+  :lookup_entry [
+    :lookup_key "+/-";
     :lookup_value "accessible with help"
   ] .
